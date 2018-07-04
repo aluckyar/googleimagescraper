@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Google Image Scraper</title>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <div class="header">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" data-element="config" href="#">
+          <label class="number-menu">1</label> Configurar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-element="download" href="#">
+          <label class="number-menu">2</label> Descargar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-element="info" href="#">
+          <label class="number-menu">+</label> Info</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /HEADER -->
+
+  <!-- ALERTS -->
+  <div class="alerts">
+    <div class="alert alert-success" role="alert" id="js-success" style="display: none">
+    </div>
+    <div class="alert alert-danger" role="alert" id="js-warning" style="display: none">
+    </div>
+    <div class="alert alert-danger" role="alert" id="js-danger" style="display: none">
+    </div>
+  </div>
+  <!-- /ALERTS -->
+
+  <!-- CONFIG -->
+  <div class="content config">
+    <h1 class="text-center">Configuración</h1>
+    <div class="alert alert-danger" role="alert" id="js-danger" style="display: none">
+    </div>
+    <div class="form-app">
+      <div class="form-group">
+        <input type="text" name="cse" placeholder="CSE ID" class="form-control" id="js-cse" />
+      </div>
+      <div class="form-group">
+        <input type="text" name="api_key" placeholder="API KEY" class="form-control" id="js-api-key" />
+      </div>
+      <div class="form-group">
+        <button class="btn-lg btn-primary btn-block" id="js-save">Guardar</button>
+      </div>
+    </div>
+  </div>
+  <!-- /CONFIG -->
+
+  <!-- DOWNLOAD -->
+  <div class="content download text-center" style="display: none;">
+    <h1 class="text-center">Google Image Scraper</h1>
+    <div class="form-app">
+      <div class="form-group">
+        <input type="text" name="search" placeholder="Búsqueda" class="form-control" id="js-search" />
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-4">
+            <button class="btn-lg btn-secundary btn-block" id="js-file-chooser">Carpeta destino</button>
+          </div>
+          <div class="col-8">
+            <input type="text" name="destiny" placeholder="Destino" class="form-control" id="js-destiny" readonly />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn-lg btn-primary btn-block" id="js-execute">Ejecutar</button>
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="loader" style="display: none;"></div>
+    </div>
+    <div class="progress" style="display: none;">
+      <div class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <div class="form-group">
+      <textarea rows="4" cols="30" class="form-control log-textarea" readonly style="display: none;" id="js-log">
+    </textarea>
+    </div>
+  </div>
+  <!-- /DOWNLOAD -->
+
+  <!-- INFO -->
+  <div class="content info" style="display: none;">
+    <h1 class="text-center">Información</h1>
+    <h2>Configurar Google Custom Search Engine</h2>
+    <p>Google elimino su API pública de imágenes, por lo que para buscar imágenes debes registrarte en el motor de búsqueda
+      personalizado de Google. Estos son los pasos que debes seguir:</p>
+    <h3>1. Crea un motor de búsqueda personalizado de Google</h3>
+    <p>Puedes hacer esto aquí:
+      <a href="https://cse.google.com/cse" class="link">https://cse.google.com/cse</a>.</p>
+    <p>No especifiques ningún sitio para buscar. Utiliza la sección "Restringir páginas utilizando los tipos de Schema.org"
+      en las "Opciones avanzadas". Para el conjunto más inclusivo, usa el esquema: Think. Anota la ID del CSE.</p>
+    <h3>2. Habilitar búsqueda de imágenes</h3>
+    <p>En la configuración de su motor de búsqueda, habilita "Búsqueda de imágenes"</p>
+    <h3>3. Configure una API de motor de búsqueda personalizada de Google</h3>
+    <p>Registra una nueva aplicación y habilita Google Custom Search Engine API aquí:
+      <a href="https://console.developers.google.com"
+        class="link">Google Developers Console</a>. Toma nota de la clave API.</p>
+  </div>
+  <!-- /INFO -->
+
+  <script>window.$ = window.jQuery = require('./assets/vendor/jquery/jquery-3.3.1.min.js');</script>
+  <script src="./assets/vendor/bootstrap-4.0.0/js/bootstrap.min.js"></script>
+  <script>require('./assets/js/utils.js')</script>
+  <script>require('./assets/js/navigation.js')</script>
+  <script>require('./assets/js/config.js')</script>
+  <script>require('./assets/js/download.js')</script>
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+</body>
+
+</html>

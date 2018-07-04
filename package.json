@@ -1,0 +1,57 @@
+{
+    "name": "googleimagescraper",
+    "version": "1.0.0",
+    "description": "App for Google Image Scraper",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "pack": "build --dir",
+        "dist": "build"
+    },
+    "homepage": "http://www.scomerline.es",
+    "author": {
+        "name": "Alejandro Lucena Archilla",
+        "email": "info@scomerline.es"
+    },
+    "license": "ISC",
+    "build": {
+        "appId": "googleimagescraper",
+        "asar": true,
+        "dmg": {
+            "contents": [
+                {
+                    "x": 110,
+                    "y": 150
+                },
+                {
+                    "x": 240,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb"
+            ]
+        },
+        "win": {
+            "target": [
+                "NSIS",
+                "portable"
+            ],
+            "icon": "build/icon.ico"
+        }
+    },
+    "devDependencies": {
+        "electron": "^2.0.1",
+        "electron-builder": "^20.13.4"
+    },
+    "dependencies": {
+        "electron-config": "^1.0.0",
+        "google-images": "^2.1.0",
+        "request": "^2.87.0"
+    }
+}
